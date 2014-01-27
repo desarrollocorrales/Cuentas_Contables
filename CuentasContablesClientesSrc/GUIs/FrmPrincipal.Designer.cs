@@ -31,11 +31,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txbIdCuentaPadre = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.cbEmpresas = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txbDescripcion = new System.Windows.Forms.TextBox();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.lblSucursal = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txbConteo = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -68,25 +70,15 @@
             this.lblTitle.Text = "Actualización de cuentas contables para clientes en Microsip";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbEmpresas
-            // 
-            this.cbEmpresas.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cbEmpresas.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEmpresas.FormattingEnabled = true;
-            this.cbEmpresas.Location = new System.Drawing.Point(281, 33);
-            this.cbEmpresas.Name = "cbEmpresas";
-            this.cbEmpresas.Size = new System.Drawing.Size(284, 24);
-            this.cbEmpresas.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(212, 36);
+            this.label2.Location = new System.Drawing.Point(213, 36);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(63, 16);
+            this.label2.Size = new System.Drawing.Size(62, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Empresa:";
+            this.label2.Text = "Sucursal:";
             // 
             // txbDescripcion
             // 
@@ -96,10 +88,10 @@
             this.txbDescripcion.BackColor = System.Drawing.Color.White;
             this.txbDescripcion.Enabled = false;
             this.txbDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txbDescripcion.Location = new System.Drawing.Point(12, 92);
+            this.txbDescripcion.Location = new System.Drawing.Point(12, 121);
             this.txbDescripcion.Multiline = true;
             this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(710, 374);
+            this.txbDescripcion.Size = new System.Drawing.Size(710, 345);
             this.txbDescripcion.TabIndex = 5;
             // 
             // btnActualizar
@@ -123,16 +115,51 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             // 
+            // lblSucursal
+            // 
+            this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.Location = new System.Drawing.Point(280, 36);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(77, 16);
+            this.lblSucursal.TabIndex = 8;
+            this.lblSucursal.Text = "lblSucursal";
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(109, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Conteo de la ultima cuenta:";
+            // 
+            // txbConteo
+            // 
+            this.txbConteo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbConteo.BackColor = System.Drawing.Color.White;
+            this.txbConteo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbConteo.Enabled = false;
+            this.txbConteo.ForeColor = System.Drawing.Color.Black;
+            this.txbConteo.Location = new System.Drawing.Point(281, 92);
+            this.txbConteo.Name = "txbConteo";
+            this.txbConteo.Size = new System.Drawing.Size(146, 23);
+            this.txbConteo.TabIndex = 10;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 512);
+            this.Controls.Add(this.txbConteo);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblSucursal);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizar);
             this.Controls.Add(this.txbDescripcion);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.cbEmpresas);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.txbIdCuentaPadre);
             this.Controls.Add(this.label1);
@@ -141,6 +168,7 @@
             this.Name = "FrmPrincipal";
             this.Text = "Actualizacion de cuentas contables";
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
+            this.Shown += new System.EventHandler(this.FrmPrincipal_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,10 +179,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txbIdCuentaPadre;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.ComboBox cbEmpresas;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbDescripcion;
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label lblSucursal;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txbConteo;
     }
 }
