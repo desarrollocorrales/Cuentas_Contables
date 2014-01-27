@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CuentasContablesClientes", "CuentasContablesClientes.vdproj", "{77227518-A451-43BB-A76C-3A731BEF01BB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77227518-A451-43BB-A76C-3A731BEF01BB}.Debug|Default.ActiveCfg = Debug
+		{77227518-A451-43BB-A76C-3A731BEF01BB}.Debug|Default.Build.0 = Debug
+		{77227518-A451-43BB-A76C-3A731BEF01BB}.Release|Default.ActiveCfg = Release
+		{77227518-A451-43BB-A76C-3A731BEF01BB}.Release|Default.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
