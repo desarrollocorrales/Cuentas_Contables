@@ -28,36 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbIdCuentaPadre = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txbDescripcion = new System.Windows.Forms.TextBox();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblSucursal = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.txbConteo = new System.Windows.Forms.TextBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(169, 65);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "ID Cuenta Padre:";
-            // 
-            // txbIdCuentaPadre
-            // 
-            this.txbIdCuentaPadre.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbIdCuentaPadre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbIdCuentaPadre.Location = new System.Drawing.Point(281, 63);
-            this.txbIdCuentaPadre.Name = "txbIdCuentaPadre";
-            this.txbIdCuentaPadre.Size = new System.Drawing.Size(284, 23);
-            this.txbIdCuentaPadre.TabIndex = 1;
             // 
             // lblTitle
             // 
@@ -70,16 +50,6 @@
             this.lblTitle.Text = "Actualización de cuentas contables para clientes en Microsip";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label2
-            // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(213, 36);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(62, 16);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Sucursal:";
-            // 
             // txbDescripcion
             // 
             this.txbDescripcion.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -88,11 +58,32 @@
             this.txbDescripcion.BackColor = System.Drawing.Color.White;
             this.txbDescripcion.Enabled = false;
             this.txbDescripcion.ForeColor = System.Drawing.Color.Black;
-            this.txbDescripcion.Location = new System.Drawing.Point(12, 121);
+            this.txbDescripcion.Location = new System.Drawing.Point(12, 84);
             this.txbDescripcion.Multiline = true;
             this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(710, 345);
+            this.txbDescripcion.Size = new System.Drawing.Size(710, 382);
             this.txbDescripcion.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(312, 36);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Sucursal:";
+            // 
+            // lblSucursal
+            // 
+            this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblSucursal.AutoSize = true;
+            this.lblSucursal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSucursal.Location = new System.Drawing.Point(377, 36);
+            this.lblSucursal.Name = "lblSucursal";
+            this.lblSucursal.Size = new System.Drawing.Size(77, 16);
+            this.lblSucursal.TabIndex = 8;
+            this.lblSucursal.Text = "lblSucursal";
             // 
             // btnActualizar
             // 
@@ -105,6 +96,37 @@
             this.btnActualizar.UseVisualStyleBackColor = true;
             this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(208, 57);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(166, 16);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Conteo de la ultima cuenta:";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.progressBar1.Location = new System.Drawing.Point(12, 472);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(548, 28);
+            this.progressBar1.TabIndex = 11;
+            this.progressBar1.Visible = false;
+            // 
+            // txbConteo
+            // 
+            this.txbConteo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txbConteo.BackColor = System.Drawing.Color.White;
+            this.txbConteo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txbConteo.Enabled = false;
+            this.txbConteo.ForeColor = System.Drawing.Color.Black;
+            this.txbConteo.Location = new System.Drawing.Point(380, 55);
+            this.txbConteo.Name = "txbConteo";
+            this.txbConteo.Size = new System.Drawing.Size(146, 23);
+            this.txbConteo.TabIndex = 10;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -114,45 +136,14 @@
             this.btnCancelar.TabIndex = 7;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // lblSucursal
-            // 
-            this.lblSucursal.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblSucursal.AutoSize = true;
-            this.lblSucursal.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSucursal.Location = new System.Drawing.Point(280, 36);
-            this.lblSucursal.Name = "lblSucursal";
-            this.lblSucursal.Size = new System.Drawing.Size(77, 16);
-            this.lblSucursal.TabIndex = 8;
-            this.lblSucursal.Text = "lblSucursal";
-            // 
-            // label3
-            // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(109, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(166, 16);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "Conteo de la ultima cuenta:";
-            // 
-            // txbConteo
-            // 
-            this.txbConteo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txbConteo.BackColor = System.Drawing.Color.White;
-            this.txbConteo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txbConteo.Enabled = false;
-            this.txbConteo.ForeColor = System.Drawing.Color.Black;
-            this.txbConteo.Location = new System.Drawing.Point(281, 92);
-            this.txbConteo.Name = "txbConteo";
-            this.txbConteo.Size = new System.Drawing.Size(146, 23);
-            this.txbConteo.TabIndex = 10;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(734, 512);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.txbConteo);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblSucursal);
@@ -161,12 +152,11 @@
             this.Controls.Add(this.txbDescripcion);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.txbIdCuentaPadre);
-            this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FrmPrincipal";
             this.Text = "Actualizacion de cuentas contables";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmPrincipal_FormClosed);
             this.Load += new System.EventHandler(this.FrmPrincipal_Load);
             this.Shown += new System.EventHandler(this.FrmPrincipal_Shown);
             this.ResumeLayout(false);
@@ -176,15 +166,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txbIdCuentaPadre;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txbDescripcion;
-        private System.Windows.Forms.Button btnActualizar;
-        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblSucursal;
+        private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.TextBox txbConteo;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }

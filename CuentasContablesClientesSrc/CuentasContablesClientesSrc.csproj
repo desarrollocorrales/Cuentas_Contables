@@ -37,6 +37,9 @@
     <Reference Include="AccSettings">
       <HintPath>.\AccSettings.dll</HintPath>
     </Reference>
+    <Reference Include="FirebirdSql.Data.FirebirdClient">
+      <HintPath>.\FirebirdSql.Data.FirebirdClient.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.5.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>.\MySql.Data.dll</HintPath>
@@ -58,6 +61,9 @@
   <ItemGroup>
     <Compile Include="clases\ConfiguracionMicrosip.cs" />
     <Compile Include="clases\ConfiguracionMysql.cs" />
+    <Compile Include="clases\Cliente.cs" />
+    <Compile Include="clases\Conteo.cs" />
+    <Compile Include="clases\FirebirdDAL.cs" />
     <Compile Include="clases\MysqlDAL.cs" />
     <Compile Include="GUIs\FrmPrincipal.cs">
       <SubType>Form</SubType>
