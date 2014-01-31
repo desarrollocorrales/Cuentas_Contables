@@ -59,6 +59,10 @@ namespace ImportarCuentasContables.clases
             Conexion.ConnectionString = getConnectionString();
             try
             {
+                string nombre = oCliente.Nombre;
+                if (nombre.Length > 50)
+                    nombre = oCliente.Nombre.Substring(0, 50);
+
                 Conexion.Open();
                 Comando = new FbCommand(string.Empty, Conexion);
                 Comando.CommandText =
@@ -66,7 +70,7 @@ namespace ImportarCuentasContables.clases
                                        (CUENTA_ID, CUENTA_PADRE_ID, SUBCUENTA, NOMBRE)
                                     VALUES
                                        ( -1, {0}, {1}, '{2}' )", 
-                                       idMicroCuentaPadre ,oCliente.iConsecutivo, oCliente.Nombre);
+                                       idMicroCuentaPadre ,oCliente.iConsecutivo, nombre);
                 Comando.ExecuteNonQuery();
 
                 if (Conexion.State != System.Data.ConnectionState.Closed)
