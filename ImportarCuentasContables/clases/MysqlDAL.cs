@@ -47,6 +47,7 @@ namespace ImportarCuentasContables.clases
                 Comando.CommandText =
                     string.Format(@"SELECT 
                                         c.idconteo,
+                                        c.idmicrocuentapadre,
                                         sucursal,
                                         md.database,
                                         usuario,
@@ -75,6 +76,7 @@ namespace ImportarCuentasContables.clases
                     MicrosipConfig.pass = Convert.ToString(row["pass"]);
                     MicrosipConfig.path = Convert.ToString(row["database"]);
                     MicrosipConfig.port = Convert.ToString(row["puerto"]);
+                    MicrosipConfig.idMicroCuentaPadre = Convert.ToInt32(row["idmicrocuentapadre"]);
                 }
 
                 if (Conexion.State != System.Data.ConnectionState.Closed)
@@ -171,6 +173,79 @@ namespace ImportarCuentasContables.clases
                     Conexion.Close();
 
                 return lstTipos;
+            }
+            catch (Exception ex)
+            {
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+                throw ex;
+            }
+        }
+
+        public List<Cliente> getClientesNoImportados(string sucursal)
+        {
+            Conexion.ConnectionString = getConnectionString();
+            try
+            {
+                Conexion.Open();
+                Comando = new MySqlCommand(string.Empty, Conexion);
+                Comando.CommandText =
+                    string.Format(@"SELECT 
+                                        idcuenta, idcliente, nombre, cuenta, consecutivo, status
+                                    FROM
+                                        {0}
+                                    where
+	                                    status=1", sucursal);
+                Adapter = new MySqlDataAdapter();
+
+                DataTable dtResultado = new DataTable();
+                Adapter.SelectCommand = Comando;
+                Adapter.Fill(dtResultado);
+
+
+                Cliente oCliente;
+                List<Cliente> lstConteos = new List<Cliente>();
+                foreach (DataRow row in dtResultado.Rows)
+                {
+                    oCliente = new Cliente();
+                    oCliente.ID_Microsip = Convert.ToInt32(row["idcliente"]);
+                    oCliente.Nombre = Convert.ToString(row["nombre"]);
+                    oCliente.Cuenta_CO = Convert.ToString(row["cuenta"]);
+                    oCliente.iConsecutivo = Convert.ToInt32(row["consecutivo"]);      
+                    oCliente.Status = Convert.ToBoolean(row["status"]);
+                    lstConteos.Add(oCliente);
+                }
+
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+
+                return lstConteos;
+            }
+            catch (Exception ex)
+            {
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+                throw ex;
+            }
+        }
+
+        public void CambiarStatusCorrecto(string sucursal, int idcliente)
+        {
+            Conexion.ConnectionString = getConnectionString();
+
+            try
+            {
+                Conexion.Open();
+                Comando = new MySqlCommand(string.Empty, Conexion);
+                Comando.CommandText =
+                    string.Format(@"UPDATE {0}
+                                    SET status = 2
+                                    WHERE idcliente = {1}",
+                                        sucursal, idcliente);
+                Comando.ExecuteNonQuery();
+
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
             }
             catch (Exception ex)
             {

@@ -19,20 +19,63 @@ namespace ImportarCuentasContables.GUIs
         public Frm_Principal()
         {
             InitializeComponent();
+
+            txbDescripcion.ScrollBars = ScrollBars.Both;
+            cancelar = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Importar()
         {
-            DialogResult dr = MessageBox.Show("Actualizar?", "Validar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if (confMicrosip != null)
             {
-                //Actualizar
+                FirebirdDAL FB_DAL = new FirebirdDAL(confMicrosip);
+                MysqlDAL MYSQL_DAL = new MysqlDAL(confMysql);
+                try
+                {
+                    string sucursal = confMicrosip.empresa;
+                    int idMicroCuentaPadre = confMicrosip.idMicroCuentaPadre;
+
+                    //Obtener clientes sin importar
+                    List<Cliente> lstClientes = MYSQL_DAL.getClientesNoImportados(sucursal);
+                    progressBar1.Minimum = 0;
+                    progressBar1.Maximum = lstClientes.Count;
+                    progressBar1.Value = 0;
+
+                    foreach (Cliente cliente in lstClientes)
+                    {
+                        if (cancelar == true)
+                            break;
+
+                        //Insertar a Microsip
+                        FB_DAL.ImportarCuentaContable(confMicrosip.idMicroCuentaPadre, cliente);
+
+                        //Cambiar Status en Mysql
+                        MYSQL_DAL.CambiarStatusCorrecto(sucursal, cliente.ID_Microsip);
+
+                        //Actualizar txbDescripcion
+                        StringBuilder sbMensaje = new StringBuilder();
+                        sbMensaje.Append("Se ha insertado el CLIENTE: " + cliente.Nombre);
+                        sbMensaje.Append(" con numero de SUBCUENTA: " + cliente.iConsecutivo);
+                        sbMensaje.Append(" y IDCUENTAPADRE: " + idMicroCuentaPadre);
+                       
+                        ActualizarDescripcion(sbMensaje.ToString());
+                        progressBar1.Value++;
+                        progressBar1.Refresh();
+                        Application.DoEvents();
+                    }
+
+                    if (cancelar != true)
+                    {
+                        progressBar1.Value = progressBar1.Maximum;
+                        ActualizarDescripcion("El proceso ha terminado correctamente");
+                        MessageBox.Show("El proceso ha terminado correctamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
-        }
-
-        private void Actualizar()
-        {
-
         }
 
         private void Frm_Principal_Shown(object sender, EventArgs e)
@@ -92,14 +135,40 @@ namespace ImportarCuentasContables.GUIs
         private void btnCargarConfig_Click(object sender, EventArgs e)
         {
             MysqlDAL DAL = new MysqlDAL(confMysql);
-            ConfiguracionMicrosip MicrosipConfig = DAL.getDatosMicrosip(cbSucursales.Text, cbTiposConexion.Text);
-            FirebirdDAL FbDal = new FirebirdDAL(MicrosipConfig);
-            if (FbDal.probarConexion())
+            confMicrosip = DAL.getDatosMicrosip(cbSucursales.Text, cbTiposConexion.Text);
+            FirebirdDAL FbDal = new FirebirdDAL(confMicrosip);
+
+            try
             {
-                MessageBox.Show("Conexión Exitosa.");
+                if (FbDal.probarConexion())
+                {
+                    MessageBox.Show("Conexión Exitosa.");
+                    btnImportar.Enabled = true;
+                }
+                else
+                {
+                    btnImportar.Enabled = false;
+                    confMicrosip = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
 
+        private void btnImportar_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Actualizar?", "Validar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                Importar();
+            }
+        }
 
+        private void Frm_Principal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            cancelar = true;
+        }
     }
 }

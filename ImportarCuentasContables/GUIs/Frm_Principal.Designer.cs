@@ -36,6 +36,7 @@
             this.cbTiposConexion = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnCargarConfig = new System.Windows.Forms.Button();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // label1
@@ -79,7 +80,7 @@
             this.btnImportar.TabIndex = 3;
             this.btnImportar.Text = "Importar";
             this.btnImportar.UseVisualStyleBackColor = true;
-            this.btnImportar.Click += new System.EventHandler(this.button1_Click);
+            this.btnImportar.Click += new System.EventHandler(this.btnImportar_Click);
             // 
             // txbDescripcion
             // 
@@ -89,7 +90,7 @@
             this.txbDescripcion.Location = new System.Drawing.Point(12, 129);
             this.txbDescripcion.Multiline = true;
             this.txbDescripcion.Name = "txbDescripcion";
-            this.txbDescripcion.Size = new System.Drawing.Size(760, 352);
+            this.txbDescripcion.Size = new System.Drawing.Size(760, 323);
             this.txbDescripcion.TabIndex = 4;
             // 
             // cbTiposConexion
@@ -123,11 +124,21 @@
             this.btnCargarConfig.UseVisualStyleBackColor = true;
             this.btnCargarConfig.Click += new System.EventHandler(this.btnCargarConfig_Click);
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Location = new System.Drawing.Point(12, 458);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(760, 23);
+            this.progressBar1.TabIndex = 8;
+            // 
             // Frm_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 529);
+            this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.btnCargarConfig);
             this.Controls.Add(this.cbTiposConexion);
             this.Controls.Add(this.label3);
@@ -140,6 +151,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Frm_Principal";
             this.Text = "Importar Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Principal_FormClosing);
             this.Shown += new System.EventHandler(this.Frm_Principal_Shown);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -156,5 +168,6 @@
         private System.Windows.Forms.ComboBox cbTiposConexion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnCargarConfig;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

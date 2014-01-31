@@ -15,6 +15,6 @@ namespace ImportarCuentasContables.clases
         public string port { get; set; }
         public string MysqlDatabase { set; get; }
         public string errorMessage { set; get; }
-        
+        public int idMicroCuentaPadre { set; get; }
     }
 }

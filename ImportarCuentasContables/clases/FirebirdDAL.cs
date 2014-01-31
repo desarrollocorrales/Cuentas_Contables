@@ -54,7 +54,34 @@ namespace ImportarCuentasContables.clases
             }
         }
 
-        public List<Cliente> getClientesSinCuentaCo()
+        public void ImportarCuentaContable(int idMicroCuentaPadre, Cliente oCliente)
+        {
+            Conexion.ConnectionString = getConnectionString();
+            try
+            {
+                Conexion.Open();
+                Comando = new FbCommand(string.Empty, Conexion);
+                Comando.CommandText =
+                    string.Format(@"INSERT INTO CUENTAS_CO
+                                       (CUENTA_ID, CUENTA_PADRE_ID, SUBCUENTA, NOMBRE)
+                                    VALUES
+                                       ( -1, {0}, {1}, '{2}' )", 
+                                       idMicroCuentaPadre ,oCliente.iConsecutivo, oCliente.Nombre);
+                Comando.ExecuteNonQuery();
+
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+
+                throw ex;
+            }
+        }
+
+        /*public List<Cliente> getClientesSinCuentaCo()
         {
             Conexion.ConnectionString = getConnectionString();
             try
@@ -98,9 +125,9 @@ namespace ImportarCuentasContables.clases
 
                 throw ex;
             }
-        }
+        }*/
 
-        public void ActualizarCliente(Cliente cliente)
+        /*public void ActualizarCliente(Cliente cliente)
         {
             Conexion.ConnectionString = getConnectionString();
             try
@@ -125,9 +152,9 @@ namespace ImportarCuentasContables.clases
 
                 throw ex;
             }
-        }
+        }*/
 
-        public void InsertarCuentaContable(Cliente cliente)
+        /*public void InsertarCuentaContable(Cliente cliente)
         {
             Conexion.ConnectionString = getConnectionString();
             try
@@ -153,6 +180,6 @@ namespace ImportarCuentasContables.clases
 
                 throw ex;
             }
-        }
+        }*/
     }
 }
