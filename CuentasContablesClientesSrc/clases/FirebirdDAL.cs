@@ -50,6 +50,7 @@ namespace CuentasContablesClientesSrc.clases
                                           CLIENTES 
                                        WHERE 
                                           CUENTA_CXC IS NULL 
+                                          AND ESTATUS = 'A'
                                     ORDER BY 
                                           CLIENTE_ID");
 
@@ -123,6 +124,76 @@ namespace CuentasContablesClientesSrc.clases
                                        (-1, {0},{1})",
                                      cliente.ID,
                                      cliente.iConsecutivo);
+                Comando.ExecuteNonQuery();
+
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+
+                throw ex;
+            }
+        }
+
+        public bool TieneMovimientos(Cliente cliente)
+        {
+            bool exito = false;
+            Conexion.ConnectionString = getConnectionString();
+
+            try
+            {
+                Conexion.Open();
+                Comando = new FbCommand(string.Empty, Conexion);
+                Comando.CommandText =
+                    string.Format(@"SELECT 
+                                      COUNT(DOCTO_VE_ID)
+                                    FROM
+                                      DOCTOS_VE
+                                    WHERE 
+	                                    CLIENTE_ID = {0}
+                                        AND FECHA >= '2013-12-01'",
+                                     cliente.ID);
+                object obj = Comando.ExecuteScalar();
+
+                int iMovimientos = Convert.ToInt32(obj);
+                
+                if (iMovimientos > 0)
+                    exito = true;
+
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+            }
+            catch (Exception ex)
+            {
+                if (Conexion.State != System.Data.ConnectionState.Closed)
+                    Conexion.Close();
+
+                throw ex;
+            }
+
+            return exito;
+        }
+
+        public void CambiarEstadoCliente(Cliente cliente)
+        {
+            Conexion.ConnectionString = getConnectionString();
+            try
+            {
+                Conexion.Open();
+                Comando = new FbCommand(string.Empty, Conexion);
+                Comando.CommandText =
+                    string.Format(@"UPDATE 
+                                        CLIENTES 
+                                       SET 
+                                        ESTATUS = 'V', 
+                                        CAUSA_SUSP = 'Sin movimientos desde el 01 de Diciembre del 2013'
+                                     WHERE 
+                                        CLIENTE_ID = {1}",
+                                     cliente.Cuenta_CO,
+                                     cliente.ID);
                 Comando.ExecuteNonQuery();
 
                 if (Conexion.State != System.Data.ConnectionState.Closed)

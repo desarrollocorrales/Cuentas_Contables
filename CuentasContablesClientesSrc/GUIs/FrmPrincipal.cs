@@ -61,31 +61,51 @@ namespace CuentasContablesClientesSrc.GUIs
 
                 //Obtener datos de sucursal
                 Conteo conteo = mysql_dal.getDatosSucursal();
-
+                bool ValidaCliente;
                 foreach (Cliente cliente in lstClientesSinCuentaCo)
                 {
                     if (cancelar == true)
                         break;
-                    //insertar cliente
-                    cliente.iConsecutivo = iConsecutivo;
-                    cliente.Cuenta_CO = conteo.CuentaPadre + iConsecutivo.ToString();
-                    mysql_dal.InsertCliente(cliente);
-                    
-                    //actualizar microsip                    
-                    //firebird_dal.InsertarCuentaContable(cliente);
-                    firebird_dal.ActualizarCliente(cliente);
 
-                    //actualizar consecutivo
-                    iConsecutivo++;
-                    mysql_dal.UpdateConsecutivo(iConsecutivo);
+                    //Validar si activo
+                    ValidaCliente = firebird_dal.TieneMovimientos(cliente);
+                    if (ValidaCliente == true)
+                    {
+                        //insertar cliente
+                        cliente.iConsecutivo = iConsecutivo;
+                        cliente.Cuenta_CO = conteo.CuentaPadre + iConsecutivo.ToString();
+                        mysql_dal.InsertCliente(cliente);
 
-                    ActualizarDescripcion(
-                        string.Format("Actualizado cliente '{0}' numero de cuenta '{1}', consecutivo '{2}'",
-                                       cliente.Nombre, cliente.Cuenta_CO, cliente.iConsecutivo));
+                        //actualizar microsip                    
+                        //firebird_dal.InsertarCuentaContable(cliente);
+                        firebird_dal.ActualizarCliente(cliente);
 
-                    progressBar1.Value++;
-                    progressBar1.Refresh();
-                    Application.DoEvents();
+                        //actualizar consecutivo
+                        iConsecutivo++;
+                        mysql_dal.UpdateConsecutivo(iConsecutivo);
+
+                        ActualizarDescripcion(
+                            string.Format("Actualizado cliente '{0}' numero de cuenta '{1}', consecutivo '{2}'",
+                                           cliente.Nombre, cliente.Cuenta_CO, cliente.iConsecutivo));
+
+                        progressBar1.Value++;
+                        progressBar1.Refresh();
+                        Application.DoEvents();
+                    }
+                    else
+                    {
+                        //Cliente inactivo     
+                        firebird_dal.CambiarEstadoCliente(cliente);
+
+                        ActualizarDescripcion(
+                            string.Format("cliente '{0}' sin movimientos, se cambia a estado Inactivo", cliente.Nombre));
+
+                        progressBar1.Value++;
+                        progressBar1.Refresh();
+                        Application.DoEvents();
+                    }
+
+
                 }
             }
             catch (Exception ex)
