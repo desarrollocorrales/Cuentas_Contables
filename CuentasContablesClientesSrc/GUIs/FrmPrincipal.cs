@@ -68,7 +68,8 @@ namespace CuentasContablesClientesSrc.GUIs
                         break;
 
                     //Validar si activo
-                    ValidaCliente = firebird_dal.TieneMovimientos(cliente);
+                    //ValidaCliente = firebird_dal.TieneMovimientos(cliente);
+                    ValidaCliente = true;
                     if (ValidaCliente == true)
                     {
                         //insertar cliente

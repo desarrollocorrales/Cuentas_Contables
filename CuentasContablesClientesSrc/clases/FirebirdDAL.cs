@@ -45,12 +45,12 @@ namespace CuentasContablesClientesSrc.clases
                 Comando = new FbCommand(string.Empty, Conexion);
                 Comando.CommandText =
                     string.Format(@"  SELECT 
-                                          CLIENTE_ID, NOMBRE, CUENTA_CXC 
+                                          CLIENTE_ID, NOMBRE, CUENTA_CXC, ESTATUS
                                         FROM 
                                           CLIENTES 
                                        WHERE 
-                                          CUENTA_CXC IS NULL 
-                                          AND ESTATUS = 'A'
+                                          CUENTA_CXC IS NULL
+                                          AND ESTATUS='A'
                                     ORDER BY 
                                           CLIENTE_ID");
 
@@ -66,6 +66,7 @@ namespace CuentasContablesClientesSrc.clases
                     oCliente.ID = Convert.ToInt32(row["CLIENTE_ID"]);
                     oCliente.Nombre = Convert.ToString(row["NOMBRE"]);
                     oCliente.Cuenta_CO = Convert.ToString(row["CUENTA_CXC"]);
+                    oCliente.Estatus = Convert.ToString(row["ESTATUS"]);
                     lstClientes.Add(oCliente);
                 }
 

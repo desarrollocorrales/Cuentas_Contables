@@ -428,7 +428,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Cuentas contables clientes"
         "ProductCode" = "8:{C9A83DAA-C194-4BA0-9B47-FCFAFA3F952F}"
-        "PackageCode" = "8:{9AA141ED-6C2A-4552-9AD0-6A76CFA0C087}"
+        "PackageCode" = "8:{12DAE756-24CC-45B7-83B7-E2394A2DC191}"
         "UpgradeCode" = "8:{956B9FDC-BE79-4DA6-B529-1AC3720C0FA4}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

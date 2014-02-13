@@ -11,5 +11,6 @@ namespace CuentasContablesClientesSrc.clases
         public string Nombre { set; get; }
         public string Cuenta_CO { set; get; }
         public int iConsecutivo { set; get; }
+        public string Estatus { set; get; }
     }
 }
