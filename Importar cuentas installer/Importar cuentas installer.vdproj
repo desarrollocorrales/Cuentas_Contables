@@ -15,13 +15,31 @@
     {
         "Entry"
         {
-        "MsmKey" = "8:_185AB28529739F086296495971AF4BE2"
+        "MsmKey" = "8:_0BC8AB0F9C6CC4C87CBDE7EAD73A5731"
         "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_47E7FE1CEDDC30001BF63057917A6F09"
+        "MsmKey" = "8:_0BD08FBC995DEF7F74095F40C1278F29"
+        "OwnerKey" = "8:_531157D23CEB2DC880FC7113C8E2214D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0BD08FBC995DEF7F74095F40C1278F29"
+        "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0F82A462804D4A6FB77C61449359E9A4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_531157D23CEB2DC880FC7113C8E2214D"
         "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -33,13 +51,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A1B990BA6D418CA47998147A8D523DC9"
-        "OwnerKey" = "8:_A8EDB1648F4E2F3359AB965477BA8335"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_A1B990BA6D418CA47998147A8D523DC9"
+        "MsmKey" = "8:_99440CEA775498255651325F90FB7275"
         "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -51,18 +63,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_A8EDB1648F4E2F3359AB965477BA8335"
-        "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_D0F9E40788A54D03A8B58C3C6912600A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_772AF2ABD946491997646964E8018715"
         "MsmSig" = "8:_UNDEFINED"
@@ -70,25 +70,25 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_185AB28529739F086296495971AF4BE2"
+        "OwnerKey" = "8:_0BC8AB0F9C6CC4C87CBDE7EAD73A5731"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_47E7FE1CEDDC30001BF63057917A6F09"
+        "OwnerKey" = "8:_531157D23CEB2DC880FC7113C8E2214D"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A8EDB1648F4E2F3359AB965477BA8335"
+        "OwnerKey" = "8:_0BD08FBC995DEF7F74095F40C1278F29"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A1B990BA6D418CA47998147A8D523DC9"
+        "OwnerKey" = "8:_99440CEA775498255651325F90FB7275"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -153,6 +153,19 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.0,Profile=Client"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4 Client Profile (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.0,Profile=Client"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Windows.Installer.3.1"
+                    {
+                    "Name" = "8:Windows Installer 3.1"
+                    "ProductCode" = "8:Microsoft.Windows.Installer.3.1"
+                    }
+                }
             }
         }
     }
@@ -183,45 +196,14 @@
         }
         "File"
         {
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_185AB28529739F086296495971AF4BE2"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:MySql.Data, Version=6.5.7.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_185AB28529739F086296495971AF4BE2"
-                    {
-                    "Name" = "8:MySql.Data.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:MySql.Data.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_8D962A6C70E449D8A8B5F241E997BAA2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_47E7FE1CEDDC30001BF63057917A6F09"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0BC8AB0F9C6CC4C87CBDE7EAD73A5731"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:FirebirdSql.Data.FirebirdClient, Version=2.7.0.0, Culture=neutral, PublicKeyToken=3750abcc3150b00c, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_47E7FE1CEDDC30001BF63057917A6F09"
+                    "_0BC8AB0F9C6CC4C87CBDE7EAD73A5731"
                     {
                     "Name" = "8:FirebirdSql.Data.FirebirdClient.dll"
                     "Attributes" = "3:512"
@@ -245,14 +227,14 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A1B990BA6D418CA47998147A8D523DC9"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_0BD08FBC995DEF7F74095F40C1278F29"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:Sofbr.Utils, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A1B990BA6D418CA47998147A8D523DC9"
+                    "_0BD08FBC995DEF7F74095F40C1278F29"
                     {
                     "Name" = "8:Sofbr.Utils.dll"
                     "Attributes" = "3:512"
@@ -276,12 +258,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3A2439C690342B3845767D8AC830235"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0F82A462804D4A6FB77C61449359E9A4"
             {
-            "SourcePath" = "8:..\\ImportarCuentasContables\\conf\\Leame.txt"
-            "TargetName" = "8:Leame.txt"
+            "SourcePath" = "8:..\\ImportarCuentasContables\\contabilidad.ico"
+            "TargetName" = "8:contabilidad.ico"
             "Tag" = "8:"
-            "Folder" = "8:_8C35908B7E374D76A363D5145F820929"
+            "Folder" = "8:_8D962A6C70E449D8A8B5F241E997BAA2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -296,14 +278,14 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_A8EDB1648F4E2F3359AB965477BA8335"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_531157D23CEB2DC880FC7113C8E2214D"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
             "AssemblyAsmDisplayName" = "8:AccSettings, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_A8EDB1648F4E2F3359AB965477BA8335"
+                    "_531157D23CEB2DC880FC7113C8E2214D"
                     {
                     "Name" = "8:AccSettings.dll"
                     "Attributes" = "3:512"
@@ -327,12 +309,43 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D0F9E40788A54D03A8B58C3C6912600A"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_99440CEA775498255651325F90FB7275"
             {
-            "SourcePath" = "8:C:\\Users\\Desarrollo\\Downloads\\contabilidad.ico"
-            "TargetName" = "8:contabilidad.ico"
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL"
+                "ScatterAssemblies"
+                {
+                    "_99440CEA775498255651325F90FB7275"
+                    {
+                    "Name" = "8:MySql.Data.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:MySql.Data.dll"
+            "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_8D962A6C70E449D8A8B5F241E997BAA2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A3A2439C690342B3845767D8AC830235"
+            {
+            "SourcePath" = "8:..\\ImportarCuentasContables\\conf\\Leame.txt"
+            "TargetName" = "8:Leame.txt"
+            "Tag" = "8:"
+            "Folder" = "8:_8C35908B7E374D76A363D5145F820929"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -415,7 +428,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Importar cuentas"
         "ProductCode" = "8:{0BBB1BC2-69A4-45A2-AA50-DBC6F1D391D0}"
-        "PackageCode" = "8:{C7929223-6A4F-401A-B54B-DF10B5235309}"
+        "PackageCode" = "8:{D6B24398-48CC-4251-907B-8307F89010F3}"
         "UpgradeCode" = "8:{BA6BB5AC-B652-49CC-9D7D-A64C25C102F3}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -432,7 +445,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_D0F9E40788A54D03A8B58C3C6912600A"
+        "ARPPRODUCTICON" = "8:_0F82A462804D4A6FB77C61449359E9A4"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -546,7 +559,7 @@
             "Target" = "8:_772AF2ABD946491997646964E8018715"
             "Folder" = "8:_E6E639E5A9B84A7E8807433C6A333B8A"
             "WorkingFolder" = "8:_8D962A6C70E449D8A8B5F241E997BAA2"
-            "Icon" = "8:_D0F9E40788A54D03A8B58C3C6912600A"
+            "Icon" = "8:_0F82A462804D4A6FB77C61449359E9A4"
             "Feature" = "8:"
             }
         }

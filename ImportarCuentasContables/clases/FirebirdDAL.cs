@@ -65,14 +65,11 @@ namespace ImportarCuentasContables.clases
                     nombre = oCliente.Nombre.Substring(0, 50);
 
                 Conexion.Open();
-                Comando = new FbCommand(string.Empty, Conexion);
-                Comando.CommandText =
-                    string.Format(@"INSERT INTO CUENTAS_CO
-                                       (CUENTA_ID, CUENTA_PADRE_ID, SUBCUENTA, NOMBRE)
-                                    VALUES
-                                       ( -1, {0}, {1}, '{2}' )", 
-                                       idMicroCuentaPadre ,oCliente.iConsecutivo, nombre);
-                Comando.CommandText = Regex.Replace(Comando.CommandText, @"[\r\n\x00\x1a\\'""]", @"\$0");
+                Comando = new FbCommand("INSERT INTO CUENTAS_CO (CUENTA_ID, CUENTA_PADRE_ID, SUBCUENTA, NOMBRE) VALUES (-1, @idcuenta, @subuenta, @nombre)", Conexion);
+                Comando.Parameters.AddWithValue("idcuenta", idMicroCuentaPadre);
+                Comando.Parameters.AddWithValue("subuenta", oCliente.iConsecutivo);
+                Comando.Parameters.AddWithValue("nombre", nombre);
+
                 Comando.ExecuteNonQuery();
 
                 if (Conexion.State != System.Data.ConnectionState.Closed)

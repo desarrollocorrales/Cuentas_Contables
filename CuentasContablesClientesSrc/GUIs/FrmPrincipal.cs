@@ -68,7 +68,7 @@ namespace CuentasContablesClientesSrc.GUIs
                         break;
 
                     //Validar si activo
-                    //ValidaCliente = firebird_dal.TieneMovimientos(cliente);
+                    ValidaCliente = firebird_dal.TieneMovimientos(cliente);
                     ValidaCliente = true;
                     if (ValidaCliente == true)
                     {
@@ -96,10 +96,10 @@ namespace CuentasContablesClientesSrc.GUIs
                     else
                     {
                         //Cliente inactivo     
-                        firebird_dal.CambiarEstadoCliente(cliente);
+                        //firebird_dal.CambiarEstadoCliente(cliente);
 
-                        ActualizarDescripcion(
-                            string.Format("cliente '{0}' sin movimientos, se cambia a estado Inactivo", cliente.Nombre));
+                        //ActualizarDescripcion(
+                          //  string.Format("cliente '{0}' sin movimientos, se cambia a estado Inactivo", cliente.Nombre));
 
                         progressBar1.Value++;
                         progressBar1.Refresh();
